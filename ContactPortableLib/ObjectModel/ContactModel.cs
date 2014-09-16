@@ -1,13 +1,12 @@
-﻿using ContactPortableLib.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactLib.ObjectModel
+namespace ContactPortableLib.ObjectModel
 {
-    public class Contact : IContact
+    public class ContactModel 
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
@@ -22,10 +21,10 @@ namespace ContactLib.ObjectModel
 
         public string Country { get; set; }
 
-        public virtual ICollection<IContactDetails> Phones { get; set; }
+        //public List<ContactDetails> Phones { get; set; }
 
-        public virtual ICollection<IContactDetails> Emails { get; set; }
+        //public List<ContactDetails> Emails { get; set; }
 
-        public virtual ICollection<IContactDetails> Tags { get; set; }        
+        //public List<ContactDetails> Tags { get; set; }        
     }
 }

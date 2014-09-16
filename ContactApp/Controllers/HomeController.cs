@@ -15,22 +15,9 @@ namespace ContactApp.Controllers
         }
 
         public ActionResult Home()
-        {
-            using( var context = new ContactContext())
-            {
-                var a = context.Contact.ToList();                
-                var b = context.ContactDetails.ToList();
-                var c = context.ContactSetting.ToList();
-            }
+        {            
             return View();
-        }        
-
-        public ActionResult Two(int donuts = 1)
-        {
-            ViewBag.Donuts = donuts;
-
-            return View();
-        }
+        }              
 
         public ActionResult About()
         {

@@ -1,7 +1,8 @@
-﻿var ContactsFactory = function ($http, $q) {    
+﻿var ContactsFactory = function ($http, $q) {                            
 
-        var _contacts = [];        
-        var _getContacts = function () {
+        var GetContacts = function () {
+
+            var deferredObject = $q.defer();
 
             $http(
                 {
@@ -11,16 +12,85 @@
                 })
                 .then(function (results) {
                     //Success
-                    angular.copy(results.data, _contacts); 
+                    deferredObject.resolve(results)
                 }, function (results) {
                     //Error
-                    alert(results.data.ExceptionMessage);
+                    deferredObject.reject(results)
                 })
-        };
 
-        return {
-            contacts: _contacts,
-            getContacts: _getContacts
+            return deferredObject.promise;
+        };
+        
+        
+        var GetContact = function (contactID) {
+
+            var deferredObject = $q.defer();
+
+            $http(
+                {
+                    method: "GET",
+                    url: "/api/Contact/Contact?Id=" + contactID,
+                    headers: { "Content_Type": "application/json; charset=utf-8" }
+                })
+                .then(function (results) {
+                    //Success                    
+                    deferredObject.resolve(results)
+                }, function (results) {
+                    //Error
+                    deferredObject.reject(results)
+                })
+
+            return deferredObject.promise;
+        };
+        
+        var SaveContact = function (model) {
+
+            var deferredObject = $q.defer();
+
+            $http(
+                {
+                    method: "POST",
+                    url: "/api/Contact/SaveContact/",
+                    data: model,
+                    headers: { "Content_Type": "application/json; charset=utf-8" }
+                })
+                .then(function (data, status, headers, config) {
+                    //Success                    
+                    deferredObject.resolve(data)
+                }, function (data, status, headers, config) {
+                    //Error
+                    deferredObject.reject(data)
+                })
+
+            return deferredObject.promise;
+        }
+    
+        var DeleteContact = function (contactId) {
+
+            var deferredObject = $q.defer();
+
+            $http(
+                {
+                    method: "DELETE",
+                    url: "/api/Contact/DeleteContact?Id=" + contactId,                    
+                    headers: { "Content_Type": "application/json; charset=utf-8" }
+                })
+                .then(function (data, status, headers, config) {
+                    //Success                    
+                    deferredObject.resolve(data)
+                }, function (data, status, headers, config) {
+                    //Error
+                    deferredObject.reject(data)
+                })
+
+            return deferredObject.promise;
+        }
+
+        return {            
+            getContacts: GetContacts,            
+            getContact: GetContact,
+            saveContact: SaveContact,
+            deleteContact: DeleteContact
         };
     
 }

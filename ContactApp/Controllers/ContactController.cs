@@ -7,26 +7,55 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Data.Entity;
+using ContactPortableLib.DAL;
+using ContactPortableLib.ObjectModel;
+using ContactLib.DAL;
 
 namespace ContactApp.Controllers
 {
     [RoutePrefix("api/Contact")]
     public class ContactController : ApiController
     {
-        [Route("Contacts")]
-        public async Task<Object> GetContacts()
+        private IContactDAL DAL;
+
+        public ContactController(IContactDAL ContactDAL)
         {
-            try
-            {
-                using(var db = new ContactContext())
-                {                    
-                    return await db.Contact.Select(x => new { FirstName = x.FirstName, LastName = x.LastName, Address = x.Address, City = x.City, Country = x.Country, PostCode = x.PostCode}).ToListAsync();                    
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            this.DAL = ContactDAL;    
+        }
+
+        [Route("Contacts")]
+        public async Task<List<ContactModel>> GetContacts()
+        {            
+            return await DAL.GetAllContacts();
+        }
+
+        [Route("Contact")]
+        public async Task<ContactModel> GetContact(Guid Id)
+        {            
+            return await DAL.GetContactById(Id);
+        }
+
+        [Route("SaveContact")]
+        public async Task<IHttpActionResult> SaveContact(ContactModel Model)
+        {            
+            await DAL.SaveContact(Model);
+
+            return Ok();
+        }
+
+        [Route("DeleteContact")]
+        public async Task<IHttpActionResult> DeleteContact(Guid Id)
+        {            
+            await DAL.DeleteContact(Id);
+
+            return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            DAL.Dispose();
         }
     }
 }

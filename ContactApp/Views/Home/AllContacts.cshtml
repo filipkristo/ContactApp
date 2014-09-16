@@ -27,6 +27,8 @@
             <th>
                 Country
             </th>
+            <th></th>
+            <th></th>
         </tr>
         <tr ng-repeat="contact in contacts">
             <td>
@@ -47,8 +49,14 @@
             <td>
                 {{contact.Country}}
             </td>
+            <td>
+                <a data-ng-click="editContact(contact)">Edit</a>
+            </td>
+            <td>
+                <a data-ng-click="deleteContact(contact)">Delete</a>
+            </td>
         </tr>
-    </table>
+    </table>    
 
 </div>
 

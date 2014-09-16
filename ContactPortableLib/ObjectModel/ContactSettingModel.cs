@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactLib.ObjectModel
+namespace ContactPortableLib.ObjectModel
 {
-    public class ContactSetting : IContactSetting
+    public class ContactSettingModel
     {
         public Guid Id { get; set; }
         public String Key { get; set; }

@@ -35,12 +35,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectModel\IContact.cs" />
-    <Compile Include="ObjectModel\IContactDetails.cs" />
-    <Compile Include="ObjectModel\IContactSetting.cs" />
+    <Compile Include="DAL\IContactDAL.cs" />
+    <Compile Include="ObjectModel\ContactModel.cs" />
+    <Compile Include="ObjectModel\ContactDetailsModel.cs" />
+    <Compile Include="ObjectModel\ContactSettingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

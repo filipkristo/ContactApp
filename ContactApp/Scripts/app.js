@@ -15,8 +15,8 @@ var configFunction = function ($routeProvider) {
             templateUrl: 'Home/AllContacts',
             controller: ContactController
         })
-        .when('/NewContact/', {
-            templateUrl: 'Home/NewContact',
+        .when('/NewContact/:Id?', {
+            templateUrl: function (params) { return '/Home/NewContact?Id=' + params.Id; },
             controller: NewContactController
         })
         .when('/About', {

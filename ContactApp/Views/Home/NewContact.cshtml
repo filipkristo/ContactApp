@@ -1,52 +1,52 @@
 ﻿
-<h2>New Contact</h2>
+<h2>{{header}}</h2>
 
-<form ng-submit="save()">
+<form ng-submit="saveContact()">
 
     <div class="form-horizontal">
-        
+
         <div class="form-group">
             <label for="name" class="control-label col-md-2">Name:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" ng-model="contactForm.firstName" id="firstName" required />
+                <input class="form-control" type="text" ng-model="contactForm.FirstName" id="firstName" required />
             </div>
         </div>
 
         <div class="form-group">
             <label for="lastName" class="control-label col-md-2">Last Name:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" id="lastName" ng-model="contactForm.lastName" required />
+                <input class="form-control" type="text" id="lastName" ng-model="contactForm.LastName" required />
             </div>
         </div>
 
         <div class="form-group">
             <label for="address" class="control-label col-md-2">Address:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" id="address" ng-model="contactForm.address" required />
+                <input class="form-control" type="text" id="address" ng-model="contactForm.Address" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="postCode" class="control-label col-md-2">PostCode:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" id="postCode" ng-model="contactForm.postCode" required />
+                <input class="form-control" type="text" id="postCode" ng-model="contactForm.PostCode" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="city" class="control-label col-md-2">City:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" id="city" ng-model="contactForm.city" required />
-            </div>            
+                <input class="form-control" type="text" id="city" ng-model="contactForm.City" />
+            </div>
         </div>
 
         <div class="form-group">
             <label for="country" class="control-label col-md-2">Country:</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" id="country" ng-model="contactForm.country" required />
+                <input class="form-control" type="text" id="country" ng-model="contactForm.Country" />
             </div>
         </div>
-        
+
         <br />
 
 
@@ -57,8 +57,8 @@
             <div class="col-md-4">
                 <input type="submit" value="Snimi" class="btn btn-default" />
             </div>
-        </div>            
-
         </div>
-    
+
+    </div>
+
 </form>
