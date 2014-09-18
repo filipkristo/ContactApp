@@ -30,8 +30,8 @@ namespace ContactLib.DAL
             var upperFilter = filter.ToUpper();
 
             var data = await Context.Contact
-                .Where(x => x.FirstName.ToUpper().Contains(filter) || x.LastName.ToUpper().Contains(filter)
-                || x.ContactTag.Any(c => c.Tag.ToUpper().Contains(filter))).ToListAsync();
+                .Where(x => x.FirstName.ToUpper().Contains(upperFilter) || x.LastName.ToUpper().Contains(upperFilter)
+                || x.ContactTag.Any(c => c.Tag.ToUpper().Contains(upperFilter))).ToListAsync();
 
             return AutoMapper.Mapper.Map<List<ContactModel>>(data);
         }        
