@@ -10,8 +10,7 @@
             else
                 strUrl = '/api/Contact/Contacts?filter=' + encodeURIComponent(filter);
 
-            $http(
-                {
+            $http({
                     method: "GET",
                     url: strUrl,
                     headers: {"Content_Type" : "application/json; charset=utf-8"}
@@ -32,8 +31,7 @@
 
             var deferredObject = $q.defer();
 
-            $http(
-                {
+            $http({
                     method: "GET",
                     url: "/api/Contact/Contact?Id=" + contactID,
                     headers: { "Content_Type": "application/json; charset=utf-8" }
@@ -53,8 +51,7 @@
 
             var deferredObject = $q.defer();
 
-            $http(
-                {
+            $http({
                     method: "POST",
                     url: "/api/Contact/SaveContact/",
                     data: model,
@@ -75,8 +72,7 @@
 
             var deferredObject = $q.defer();
 
-            $http(
-                {
+            $http({
                     method: "DELETE",
                     url: "/api/Contact/DeleteContact?Id=" + contactId,                    
                     headers: { "Content_Type": "application/json; charset=utf-8" }

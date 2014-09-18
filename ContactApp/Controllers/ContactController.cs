@@ -57,7 +57,6 @@ namespace ContactApp.Controllers
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-
             DAL.Dispose();
         }
     }

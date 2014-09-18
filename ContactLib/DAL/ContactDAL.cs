@@ -27,9 +27,12 @@ namespace ContactLib.DAL
 
         public async Task<List<ContactModel>> GetContacts(String filter)
         {
+            var upperFilter = filter.ToUpper();
+
             var data = await Context.Contact
-                .Where(x => x.FirstName.Contains(filter) || x.LastName.Contains(filter)
-                || x.ContactTag.Any(c => c.Tag.Contains(filter))).ToListAsync();
+                .Where(x => x.FirstName.ToUpper().Contains(upperFilter) || x.LastName.ToUpper().Contains(upperFilter)
+                || x.ContactTag.Any(c => c.Tag.ToUpper().Contains(upperFilter))).ToListAsync();
+
             return AutoMapper.Mapper.Map<List<ContactModel>>(data);
         }        
 
@@ -55,7 +58,6 @@ namespace ContactLib.DAL
             }
             else
             {                
-
                 foreach (var item in entity.ContactPhone)
                 {
                     if (item.Id == Guid.Empty)

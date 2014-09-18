@@ -25,20 +25,7 @@ namespace ContactApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            ContactLib.AutoMapperSetup.AutoMapperSetup.SetupAll();
-
-            //// Create a new Unity dependency injection container
-            //var unity = new UnityContainer();
-
-            //// Register the Controllers that should be injectable
-            //unity.RegisterType<ContactController>();
-            //unity.RegisterType<IContactDAL, ContactDAL>(new HierarchicalLifetimeManager());
-            //// Register instances to be used when resolving constructor parameter dependencies
-            ////unity.RegisterInstance(typeof(IContactDAL), new ContactDAL());
-
-            //// Finally, override the default dependency resolver with Unity
-            //GlobalConfiguration.Configuration.DependencyResolver = new IoCContainer(unity);
-
+            ContactLib.AutoMapperSetup.AutoMapperSetup.SetupAll();            
         }
     }
 }

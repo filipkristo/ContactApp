@@ -20,8 +20,7 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
 
     $scope.header = '';        
 
-    $scope.addNewPhone = function () {
-        var newItemNo = $scope.contactForm.ContactPhone.length + 1;
+    $scope.addNewPhone = function () {        
         var newPhone = {Id: '', Phone: '', ContactId: $scope.contactForm.Id};
         $scope.contactForm.ContactPhone.push(newPhone);        
     };
@@ -37,7 +36,8 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
         $scope.info = 'Phone removed!';
     };
     
-    $scope.addNewEmail = function () {        
+    $scope.addNewEmail = function () {
+
         var newEmail = { Id: '', Email: '', ContactId: $scope.contactForm.Id };
         $scope.contactForm.ContactEmail.push(newEmail);        
     };    
@@ -54,6 +54,7 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
     };
 
     $scope.addNewTag = function () {
+
         var newTag = { Id: '', Tag: '', ContactId: $scope.contactForm.Id };
         $scope.contactForm.ContactTag.push(newTag);        
     };
@@ -70,6 +71,7 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
     };
 
     if ($routeParams.Id != null) {
+
         $scope.header = 'Edit Contact';
 
         ContactsFactory.getContact($routeParams.Id).then(function (results) {
@@ -78,7 +80,6 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
         },
         function (results) {
             //reject
-
             alert(results.data.ExceptionMessage);
         });
     }
@@ -86,6 +87,7 @@ var NewContactController = function ($scope, $routeParams, $location, ContactsFa
         $scope.header = 'New Contact';
 
     $scope.saveContact = function () {
+
         $scope.info = '';
         $scope.error = '';
 

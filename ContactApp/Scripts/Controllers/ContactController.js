@@ -11,13 +11,13 @@ var ContactController = function ($scope, $location, ContactsFactory) {
     $scope.deleteContact = function (item) {
 
         var result = confirm('Are you sure that you want to delete contact: ' + item.FirstName);
-
         if (result == false)
             return;
 
         ContactsFactory.deleteContact(item.Id).then(function (results) {
+            //resolve
             refresh();            
-            },
+        },
         function (results) {
             //reject
             refresh();
@@ -35,14 +35,13 @@ var ContactController = function ($scope, $location, ContactsFactory) {
             //reject
             alert(results.data.ExceptionMessage);
         });
-    };    
-    
-    refresh();
+    };            
 
     $scope.$watch('SearchText', function (val) {
         refresh();
     });
 
+    refresh();
 }
 
 // The $inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
