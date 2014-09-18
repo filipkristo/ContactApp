@@ -515,9 +515,9 @@
       <Project>{66711762-b3b9-4be4-aa3f-3c87ea697840}</Project>
       <Name>ContactLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ContactPortableLib\ContactPortableLib.csproj">
-      <Project>{0681fbc1-d3cb-4782-9677-33fbc3800cb6}</Project>
-      <Name>ContactPortableLib</Name>
+    <ProjectReference Include="..\ContactPortableLibrary\ContactPortableLibrary.csproj">
+      <Project>{f98d092a-39e7-46c0-a48f-413b34f8385c}</Project>
+      <Name>ContactPortableLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
