@@ -11,7 +11,9 @@ namespace ContactLib.EFContext
     {
         public Contact()
         {
-            ContactDetails = new HashSet<ContactDetails>();
+            ContactEmail = new HashSet<ContactEmail>();
+            ContactPhone = new HashSet<ContactPhone>();
+            ContactTag = new HashSet<ContactTag>();
         }
 
         public Guid Id { get; set; }
@@ -23,7 +25,7 @@ namespace ContactLib.EFContext
         [Required]
         [StringLength(255)]
         public string LastName { get; set; }
-        
+
         [StringLength(255)]
         public string Address { get; set; }
 
@@ -36,6 +38,10 @@ namespace ContactLib.EFContext
         [StringLength(255)]
         public string Country { get; set; }
 
-        public virtual ICollection<ContactDetails> ContactDetails { get; set; }
+        public virtual ICollection<ContactEmail> ContactEmail { get; set; }
+
+        public virtual ICollection<ContactPhone> ContactPhone { get; set; }
+
+        public virtual ICollection<ContactTag> ContactTag { get; set; }
     }
 }

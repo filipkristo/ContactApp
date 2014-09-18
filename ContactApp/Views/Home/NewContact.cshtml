@@ -3,6 +3,14 @@
 
 <form ng-submit="saveContact()">
 
+    <div class="row">
+        <label for="error" class="label-danger">{{error}}</label>                
+    </div>
+
+    <div class="row">
+        <label for="info" class="label-success">{{info}}</label>                
+    </div>
+
     <div class="form-horizontal">
 
         <div class="form-group">
@@ -45,17 +53,53 @@
             <div class="col-md-10">
                 <input class="form-control" type="text" id="country" ng-model="contactForm.Country" />
             </div>
+        </div>                
+
+        <div class="form-group" data-ng-repeat="phone in contactForm.ContactPhone">
+            <label for="choice" class="control-label col-md-2">Phone:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" ng-model="phone.Phone" ng-blur="removePhone(phone)" name="" required>                   
+            </div>
         </div>
 
-        <br />
+        <div class="form-group">
+            <div class="col-md-4">
+                <a ng-click="addNewPhone()">Add phone</a>                
+            </div>            
+        </div>        
 
+        <div class="form-group" data-ng-repeat="email in contactForm.ContactEmail">
+            <label for="choice" class="control-label col-md-2">Email:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" ng-model="email.Email" name="" ng-blur="removeEmail(email)" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <a ng-click="addNewEmail()">Add email</a>
+            </div>
+        </div>        
+
+        <div class="form-group" data-ng-repeat="tag in contactForm.ContactTag">
+            <label for="choice" class="control-label col-md-2">Tag:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" ng-model="tag.Tag" name="" ng-blur="removeTag(tag)" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <a ng-click="addNewTag()">Add tag</a>
+            </div>
+        </div>        
 
         <div class="row">
             <div class="col-md-4">
-                <a class="btn btn-default" href="javascript:history.go(-1);">Nazad</a>
+                <a class="btn btn-default" href="javascript:history.go(-1);">Back</a>
             </div>
             <div class="col-md-4">
-                <input type="submit" value="Snimi" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
 

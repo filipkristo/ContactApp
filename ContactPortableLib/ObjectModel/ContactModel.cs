@@ -8,6 +8,13 @@ namespace ContactPortableLib.ObjectModel
 {
     public class ContactModel 
     {
+        public ContactModel()
+        {
+            ContactEmail = new List<ContactEmailModel>();
+            ContactPhone = new List<ContactPhoneModel>();
+            ContactTag = new List<ContactTagModel>();
+        }
+
         public Guid Id { get; set; }
         public string FirstName { get; set; }
 
@@ -21,10 +28,10 @@ namespace ContactPortableLib.ObjectModel
 
         public string Country { get; set; }
 
-        //public List<ContactDetails> Phones { get; set; }
+        public List<ContactEmailModel> ContactEmail { get; set; }
 
-        //public List<ContactDetails> Emails { get; set; }
+        public List<ContactPhoneModel> ContactPhone { get; set; }
 
-        //public List<ContactDetails> Tags { get; set; }        
+        public List<ContactTagModel> ContactTag { get; set; }
     }
 }

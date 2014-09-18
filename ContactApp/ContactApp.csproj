@@ -182,10 +182,12 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <None Include="Properties\PublishProfiles\Disk.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\Filter\ContactFilter.js" />
+    <Content Include="Scripts\_app.js" />
     <Content Include="Scripts\Controllers\ContactController.js" />
-    <Content Include="Scripts\Controllers\ContactsFactory.js" />
+    <Content Include="Scripts\Factory\ContactsFactory.js" />
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\Controllers\NewContactController.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />

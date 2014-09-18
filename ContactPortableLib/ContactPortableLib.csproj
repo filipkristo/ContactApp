@@ -38,9 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\IContactDAL.cs" />
+    <Compile Include="ObjectModel\ContactEmailModel.cs" />
     <Compile Include="ObjectModel\ContactModel.cs" />
-    <Compile Include="ObjectModel\ContactDetailsModel.cs" />
-    <Compile Include="ObjectModel\ContactSettingModel.cs" />
+    <Compile Include="ObjectModel\ContactPhoneModel.cs" />
+    <Compile Include="ObjectModel\ContactTagModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

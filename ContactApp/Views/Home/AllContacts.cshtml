@@ -2,11 +2,16 @@
 
 <h2>Contacts</h2>
 
-<p>
-    <a href="/#/NewContact">New Contact</a>
-</p>
-
 <div ng-controller="ContactController">
+
+    <p>
+        <a href="/#/NewContact">New Contact</a>
+    </p>
+
+    <div class="top-right">
+        <input class="form-control" type="text" ng-model="SearchText" placeholder="Search contacts..." />
+    </div>
+
     <table class="table">
         <tr>
             <th>
@@ -30,7 +35,7 @@
             <th></th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in contacts">
+        <tr ng-repeat="contact in contacts | ContactFilter: SearchText">
             <td>
                 {{contact.FirstName}}
             </td>
@@ -56,7 +61,7 @@
                 <a data-ng-click="deleteContact(contact)">Delete</a>
             </td>
         </tr>
-    </table>    
+    </table>
 
 </div>
 

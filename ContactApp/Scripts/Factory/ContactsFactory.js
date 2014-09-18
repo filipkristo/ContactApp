@@ -1,13 +1,13 @@
 ﻿var ContactsFactory = function ($http, $q) {                            
 
-        var GetContacts = function () {
+        var GetContacts = function (filter) {
 
             var deferredObject = $q.defer();
 
             $http(
                 {
                     method: "GET",
-                    url: "/api/Contact/Contacts",
+                    url: "/api/Contact/Contacts?filter=" + filter,
                     headers: {"Content_Type" : "application/json; charset=utf-8"}
                 })
                 .then(function (results) {

@@ -24,7 +24,7 @@ namespace ContactApp.Controllers
         }
 
         [Route("Contacts")]
-        public async Task<List<ContactModel>> GetContacts()
+        public async Task<List<ContactModel>> GetContacts(String filter = "")
         {            
             return await DAL.GetAllContacts();
         }

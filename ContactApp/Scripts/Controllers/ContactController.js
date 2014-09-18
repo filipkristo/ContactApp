@@ -9,7 +9,7 @@ var ContactController = function ($scope, $location, ContactsFactory) {
 
     $scope.deleteContact = function (item) {
 
-        var result = confirm('Are you sure that you want to delete ' + item.FirstName);
+        var result = confirm('Are you sure that you want to delete contact: ' + item.FirstName);
 
         if (result == false)
             return;
@@ -26,7 +26,7 @@ var ContactController = function ($scope, $location, ContactsFactory) {
     };    
 
     var refresh = function () {
-        ContactsFactory.getContacts().then(function (results) {
+        ContactsFactory.getContacts('').then(function (results) {
             //resolve
             angular.copy(results.data, $scope.contacts);
         },

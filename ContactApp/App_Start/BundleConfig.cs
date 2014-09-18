@@ -10,7 +10,9 @@ namespace ContactApp
         {
             bundles.Add(new ScriptBundle("~/bundles/ContactApp")
             .IncludeDirectory("~/Scripts/Controllers", "*.js")
-            .Include("~/Scripts/app.js"));
+            .IncludeDirectory("~/Scripts/Factory", "*.js")
+            .IncludeDirectory("~/Scripts/Filter", "*.js")
+            .Include("~/Scripts/_app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

@@ -1,5 +1,8 @@
 ﻿
-var NewContactController = function ($scope, $routeParams, ContactsFactory) {
+var NewContactController = function ($scope, $routeParams, $location, ContactsFactory) {
+
+    $scope.error = '';
+    $scope.info = '';
 
     $scope.contactForm = 
     {
@@ -9,10 +12,62 @@ var NewContactController = function ($scope, $routeParams, ContactsFactory) {
         Address: '',
         PostCode: '',
         City: '',
-        Country: ''
+        Country: '',
+        ContactPhone: [],
+        ContactEmail: [],
+        ContactTag: []
     };
 
-    $scope.header = '';
+    $scope.header = '';        
+
+    $scope.addNewPhone = function () {
+        var newItemNo = $scope.contactForm.ContactPhone.length + 1;
+        var newPhone = {Id: '', Phone: '', ContactId: $scope.contactForm.Id};
+        $scope.contactForm.ContactPhone.push(newPhone);        
+    };
+    
+    $scope.removePhone = function (item) {        
+
+        if (item.Phone != null)
+            return;
+
+        var index = $scope.contactForm.ContactPhone.indexOf(item);
+        $scope.contactForm.ContactPhone.splice(index, 1);
+
+        $scope.info = 'Phone removed!';
+    };
+    
+    $scope.addNewEmail = function () {        
+        var newEmail = { Id: '', Email: '', ContactId: $scope.contactForm.Id };
+        $scope.contactForm.ContactEmail.push(newEmail);        
+    };    
+
+    $scope.removeEmail = function (item) {
+
+        if (item.Email != null)
+            return;
+
+        var index = $scope.contactForm.ContactEmail.indexOf(item);
+        $scope.contactForm.ContactEmail.splice(index, 1);
+
+        $scope.info = 'Email removed!';
+    };
+
+    $scope.addNewTag = function () {
+        var newTag = { Id: '', Tag: '', ContactId: $scope.contactForm.Id };
+        $scope.contactForm.ContactTag.push(newTag);        
+    };
+    
+    $scope.removeTag = function (item) {
+
+        if (item.Tag != null)
+            return;
+
+        var index = $scope.contactForm.ContactTag.indexOf(item);
+        $scope.contactForm.ContactTag.splice(index, 1);
+
+        $scope.info = 'Tag removed!';
+    };
 
     if ($routeParams.Id != null) {
         $scope.header = 'Edit Contact';
@@ -31,19 +86,20 @@ var NewContactController = function ($scope, $routeParams, ContactsFactory) {
         $scope.header = 'New Contact';
 
     $scope.saveContact = function () {
+        $scope.info = '';
+        $scope.error = '';
+
         ContactsFactory.saveContact($scope.contactForm).then(function (results) {
             //resolve
-            alert('Contact saved!');
+            $location.path("/AllContacts/");
         },
         function (results) {
             //reject
-
-            alert(results.ExceptionMessage);
+            $scope.error = results.ExceptionMessage;            
         });
-    };
-    
+    };       
         
 }
 
 // The $inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
-NewContactController.$inject = ['$scope', '$routeParams', 'ContactsFactory'];
+NewContactController.$inject = ['$scope', '$routeParams', '$location', 'ContactsFactory'];

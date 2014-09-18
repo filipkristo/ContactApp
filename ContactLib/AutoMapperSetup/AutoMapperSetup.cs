@@ -15,6 +15,15 @@ namespace ContactLib.AutoMapperSetup
         {
             Mapper.CreateMap<ContactModel, Contact>();
             Mapper.CreateMap<Contact, ContactModel>();
+
+            Mapper.CreateMap<ContactPhoneModel, ContactPhone>();
+            Mapper.CreateMap<ContactPhone, ContactPhoneModel>();            
+
+            Mapper.CreateMap<ContactEmailModel, ContactEmail>();
+            Mapper.CreateMap<ContactEmail, ContactEmailModel>();
+
+            Mapper.CreateMap<ContactTagModel, ContactTag>();
+            Mapper.CreateMap<ContactTag, ContactTagModel>();
         }
     }
 }

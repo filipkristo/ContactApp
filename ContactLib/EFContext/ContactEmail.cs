@@ -6,20 +6,17 @@ namespace ContactLib.EFContext
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class ContactDetails
+    [Table("ContactEmail")]
+    public partial class ContactEmail
     {
         public Guid Id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string Value { get; set; }
+        public string Email { get; set; }
 
         public Guid ContactId { get; set; }
 
-        public Guid ContactSettingId { get; set; }
-
         public virtual Contact Contact { get; set; }
-
-        public virtual ContactSetting ContactSetting { get; set; }
     }
 }

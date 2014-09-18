@@ -13,8 +13,9 @@ namespace ContactLib.EFContext
         }
 
         public virtual DbSet<Contact> Contact { get; set; }
-        public virtual DbSet<ContactDetails> ContactDetails { get; set; }
-        public virtual DbSet<ContactSetting> ContactSetting { get; set; }
+        public virtual DbSet<ContactEmail> ContactEmail { get; set; }
+        public virtual DbSet<ContactPhone> ContactPhone { get; set; }
+        public virtual DbSet<ContactTag> ContactTag { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,26 +44,31 @@ namespace ContactLib.EFContext
                 .IsUnicode(false);
 
             modelBuilder.Entity<Contact>()
-                .HasMany(e => e.ContactDetails)
+                .HasMany(e => e.ContactEmail)
                 .WithRequired(e => e.Contact)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ContactDetails>()
-                .Property(e => e.Value)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ContactSetting>()
-                .Property(e => e.Key)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ContactSetting>()
-                .Property(e => e.Value)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ContactSetting>()
-                .HasMany(e => e.ContactDetails)
-                .WithRequired(e => e.ContactSetting)
+            modelBuilder.Entity<Contact>()
+                .HasMany(e => e.ContactPhone)
+                .WithRequired(e => e.Contact)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Contact>()
+                .HasMany(e => e.ContactTag)
+                .WithRequired(e => e.Contact)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContactEmail>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactPhone>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactTag>()
+                .Property(e => e.Tag)
+                .IsUnicode(false);
         }
     }
 }

@@ -58,8 +58,9 @@
     <Compile Include="DAL\ContactDAL.cs" />
     <Compile Include="EFContext\Contact.cs" />
     <Compile Include="EFContext\ContactContext.cs" />
-    <Compile Include="EFContext\ContactDetails.cs" />
-    <Compile Include="EFContext\ContactSetting.cs" />
+    <Compile Include="EFContext\ContactEmail.cs" />
+    <Compile Include="EFContext\ContactPhone.cs" />
+    <Compile Include="EFContext\ContactTag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
