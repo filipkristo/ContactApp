@@ -12,6 +12,8 @@
         <input class="form-control" type="text" ng-model="SearchText" placeholder="Search contacts..." />
     </div>
 
+    <br />
+
     <table class="table">
         <tr>
             <th>
@@ -35,7 +37,7 @@
             <th></th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in contacts | ContactFilter: SearchText">
+        <tr ng-repeat="contact in contacts">
             <td>
                 {{contact.FirstName}}
             </td>

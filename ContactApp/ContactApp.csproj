@@ -184,7 +184,6 @@
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Properties\PublishProfiles\Disk.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Filter\ContactFilter.js" />
     <Content Include="Scripts\_app.js" />
     <Content Include="Scripts\Controllers\ContactController.js" />
     <Content Include="Scripts\Factory\ContactsFactory.js" />

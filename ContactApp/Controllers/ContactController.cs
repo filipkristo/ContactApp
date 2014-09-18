@@ -25,8 +25,11 @@ namespace ContactApp.Controllers
 
         [Route("Contacts")]
         public async Task<List<ContactModel>> GetContacts(String filter = "")
-        {            
-            return await DAL.GetAllContacts();
+        {
+            if (String.IsNullOrWhiteSpace(filter))
+                return await DAL.GetAllContacts();
+            else
+                return await DAL.GetContacts(filter);
         }
 
         [Route("Contact")]

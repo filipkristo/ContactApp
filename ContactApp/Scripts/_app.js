@@ -6,8 +6,6 @@ AngularMVCApp.controller('NewContactController', ContactController);
 
 AngularMVCApp.factory('ContactsFactory', ContactsFactory);
 
-AngularMVCApp.filter('ContactFilter' , ContactFilter);
-
 var configFunction = function ($routeProvider) {
     $routeProvider.
         when('/Index', {

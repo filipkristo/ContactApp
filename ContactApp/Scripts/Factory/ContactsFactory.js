@@ -3,11 +3,17 @@
         var GetContacts = function (filter) {
 
             var deferredObject = $q.defer();
+            var strUrl = '';
+
+            if (filter == '')
+                strUrl = '/api/Contact/Contacts/';
+            else
+                strUrl = '/api/Contact/Contacts?filter=' + encodeURIComponent(filter);
 
             $http(
                 {
                     method: "GET",
-                    url: "/api/Contact/Contacts?filter=" + filter,
+                    url: strUrl,
                     headers: {"Content_Type" : "application/json; charset=utf-8"}
                 })
                 .then(function (results) {
